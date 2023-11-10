@@ -1,0 +1,12 @@
+LOAD Student
+LOAD Advisor
+LOAD Marks
+Q8a <- SELECT Adv_Id == 2 FROM Advisor
+Q8b <- SELECT Maths_marks > 90 FROM Marks
+Q8c <- CROSS Student Q8a
+Q8d <- SELECT Advisor_id == Adv_Id FROM Q8c
+Q8e <- CROSS Q8d Q8b
+Q8f <- SELECT Q8d_Stud_Id == Q8b_Stud_Id FROM Q8e
+RENAME Q8d_Stud_Id TO Stud_Id FROM Q8f
+Q8g <- PROJECT Stud_Id FROM Q8f
+PRINT Q8g

@@ -1,0 +1,6 @@
+LOAD Student
+LOAD Advisor
+LOAD Marks
+R <- SELECT Stud_sex == 0 FROM Student
+Q1 <- PROJECT Stud_Id, Stud_age FROM R
+PRINT Q1
